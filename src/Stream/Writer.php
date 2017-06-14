@@ -96,7 +96,7 @@ class Writer
             $this->logger[$channel]->pushHandler(
                 new Handler(
                     $channel,
-                    storage_path(sprintf('logs/%s', $this->channels[$channel]['log'])),
+                    $this->channels[$channel]['log'],
                     $this->channels[$channel]['level']
                 )
             );
