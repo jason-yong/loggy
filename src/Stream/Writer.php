@@ -102,6 +102,10 @@ class Writer
             );
         }
 
+        $user = \Auth::user();
+        list($username, $email) = explode("@", $user->email);
+        $message = $username . ' (' . $user->id . ') - ' . $message;
+
         $this->logger[$channel]->{$level}($message, $context);
     }
 
